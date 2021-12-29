@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'theme.dart' as theme;
+
 class InventoryListTile extends StatelessWidget {
   const InventoryListTile({Key? key, required this.itemName}) : super(key: key);
 
@@ -14,7 +16,7 @@ class InventoryListTile extends StatelessWidget {
       // color: Colors.pink[50],
       child: Text(
         itemName,
-        style: const TextStyle(color: Colors.black),
+        style: theme.Typography.bodyMedium(theme.Light.onSurface),
       ),
     );
   }
