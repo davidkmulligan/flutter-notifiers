@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'inventory_list_group.dart';
+import 'package:pantry/models/consumable.dart';
+import 'package:pantry/app/theme.dart' as theme;
+import 'package:pantry/app/store.dart' as store;
 
-import 'consumable.dart';
-import 'theme.dart' as theme;
-import 'store.dart' as store;
+import 'inventory_list_group.dart';
 
 class InventoryView extends StatelessWidget {
   const InventoryView({Key? key}) : super(key: key);
@@ -106,10 +106,3 @@ Widget _sortBy() => Container(
         ),
       ),
     );
-
-// Widget _container = Container(
-//   child: Text(
-//     'hello',
-
-//   ),
-// );

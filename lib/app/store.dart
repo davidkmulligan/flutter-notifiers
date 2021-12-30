@@ -1,4 +1,4 @@
-import 'consumable.dart';
+import 'package:pantry/models/consumable.dart';
 
 List<Consumable> consumables = [
   Consumable(name: 'bread', location: 'bread bin'),

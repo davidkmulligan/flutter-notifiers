@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pantry/consumable.dart';
 
-import 'theme.dart' as theme;
+import 'package:pantry/models/consumable.dart';
+import 'package:pantry/app/theme.dart' as theme;
 
 import 'inventory_list_tile.dart';
 
@@ -17,9 +17,6 @@ class InventoryListGroup extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
-      // width:
-      //     MediaQuery.of(context).size.width - 16.0, // 8px padding on each side
-      // color: Colors.pink[900],
       child: Column(
         children: [
           _groupTitle(groupTitle),
@@ -33,8 +30,6 @@ class InventoryListGroup extends StatelessWidget {
 Widget _groupTitle(String title) => Container(
       alignment: Alignment.centerLeft,
       padding: const EdgeInsets.all(8.0),
-      // padding: const EdgeInsets.symmetric(vertical: 8.0),
-      // color: Colors.pink[700],
       child: Text(
         title,
         style: theme.Typography.titleSmall(theme.Light.onBackground),
