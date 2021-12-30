@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 
 import 'package:pantry/models/consumable.dart';
+import 'package:pantry/models/inventory_group.dart';
 import 'package:pantry/app/theme.dart' as theme;
 
 import 'inventory_list_tile.dart';
 
 class InventoryListGroup extends StatelessWidget {
-  const InventoryListGroup(
-      {required this.groupTitle, required this.groupList, Key? key})
-      : super(key: key);
+  const InventoryListGroup({Key? key, required this.group}) : super(key: key);
 
-  final String groupTitle;
-  final List<Consumable> groupList;
+  final InventoryGroup group;
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +17,8 @@ class InventoryListGroup extends StatelessWidget {
       margin: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
       child: Column(
         children: [
-          _groupTitle(groupTitle),
-          _groupBody(groupList),
+          _groupTitle(group.name),
+          _groupBody(group.consumables),
         ],
       ),
     );

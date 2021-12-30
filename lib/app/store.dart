@@ -1,14 +1,19 @@
 import 'package:pantry/models/consumable.dart';
+import 'package:pantry/models/inventory_group.dart';
 
-List<Consumable> consumables = [
-  Consumable(name: 'bread', location: 'bread bin'),
-  Consumable(name: 'coke', location: 'fridge'),
-  Consumable(name: 'coke', location: 'fridge'),
-  Consumable(name: 'coke', location: 'fridge'),
-  Consumable(name: 'butter', location: 'fridge'),
-  Consumable(name: 'pizza', location: 'freezer'),
-  Consumable(name: 'biscuits', location: 'bread bin'),
-  Consumable(name: 'english breakfast tea', location: 'press'),
-  Consumable(name: 'rice', location: 'press'),
-  Consumable(name: 'pasta', location: 'press'),
+List<Consumable> consumablesSource = [
+  Consumable(name: 'bread', location: 'Bread bin'),
+  Consumable(name: 'coke', location: 'Fridge'),
+  Consumable(name: 'coke', location: 'Fridge'),
+  Consumable(name: 'coke', location: 'Fridge'),
+  Consumable(name: 'butter', location: 'Fridge'),
+  Consumable(name: 'pizza', location: 'Freezer'),
+  Consumable(name: 'biscuits', location: 'Bread bin'),
+  Consumable(name: 'english breakfast tea', location: 'Press'),
+  Consumable(name: 'rice', location: 'Press'),
+  Consumable(name: 'pasta', location: 'Press'),
+  Consumable(name: 'apple', location: 'Fruit bowl'),
 ];
+
+List<InventoryGroup> locationGroups = [];
+List<InventoryGroup> alphabeticalGroups = [];
