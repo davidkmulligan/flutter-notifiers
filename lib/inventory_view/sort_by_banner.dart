@@ -21,7 +21,7 @@ class SortByBanner extends StatelessWidget {
 
 _bannerContainer(String category) {
   return Container(
-    height: 56.0,
+    height: 44.0,
     padding: const EdgeInsets.only(left: 16.0),
     child: Align(
       alignment: Alignment.centerLeft,

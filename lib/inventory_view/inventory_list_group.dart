@@ -37,13 +37,9 @@ Widget _groupTitle(String title) => Container(
 Widget _groupBody(List<Consumable> list) {
   final _listTiles = <Widget>[];
 
-  for (Consumable c in list) {
-    _listTiles.add(InventoryListTile(itemName: c.name));
-    _listTiles.add(Divider(
-      indent: 8.0,
-      height: 1.0,
-      color: theme.Light.onSurfaceAccent,
-    ));
+  for (var i = 0; i < list.length; i++) {
+    final _hasDivider = i < (list.length - 1) ? true : false;
+    _listTiles.add(InventoryListTile(item: list[i], hasDivider: _hasDivider));
   }
 
   _listTiles.removeLast();
