@@ -1,7 +1,10 @@
+import 'dart:math';
+
 import 'package:uuid/uuid.dart';
 
 class Consumable {
-  Consumable({required this.name, required this.location}) {
+  Consumable(
+      {required this.name, required this.location, required this.expiry}) {
     _uuid = const Uuid();
     id = _uuid.v4();
     isMarkedForDelete = false;
@@ -14,4 +17,25 @@ class Consumable {
 
   String name;
   String location;
+  Expiry expiry;
+
+  String printExpiry() {
+    if (expiry.year == DateTime.now().year) {
+      return '${expiry.day} - ${expiry.month}';
+    } else {
+      return '${expiry.day} - ${expiry.month} - ${expiry.year}';
+    }
+  }
+}
+
+class Expiry {
+  Expiry({int? day, int? month, int? year}) {
+    final now = DateTime.now();
+    this.day = day ?? now.day;
+    this.month = month ?? now.month;
+    this.year = year ?? now.year;
+  }
+  late int day;
+  late int month;
+  late int year;
 }
