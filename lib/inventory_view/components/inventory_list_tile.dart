@@ -12,20 +12,42 @@ class InventoryListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () => DataStore.updateConsumable(
-          id: consumable.id,
-          update: Consumable(
-              name: consumable.name + 'ah', location: consumable.location)),
-      child: Container(
-        alignment: Alignment.centerLeft,
-        padding: const EdgeInsets.only(left: 8.0),
-        height: 44.0,
-        child: Text(
-          consumable.name,
-          style: theme.Typography.body(theme.Palette.onBackground),
-        ),
+    return Dismissible(
+      key: Key(consumable.id),
+      background: Container(
+        color: theme.Palette.error,
+      ),
+      onDismissed: (direction) => DataStore.deleteConsumable(consumable.id),
+      child: InkWell(
+        onTap: () => DataStore.updateConsumable(
+            id: consumable.id,
+            update: Consumable(
+                name: consumable.name + 'ah',
+                location: consumable.location,
+                expiry: Expiry(day: 14, month: 04))),
+        child: _tile(consumable),
       ),
     );
   }
+}
+
+Widget _tile(Consumable c) {
+  return Container(
+    alignment: Alignment.centerLeft,
+    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+    height: 44.0,
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          c.name,
+          style: theme.Typography.body(theme.Palette.onBackground),
+        ),
+        Text(
+          c.printExpiry(),
+          style: theme.Typography.body(theme.Palette.onBackgroundFaded),
+        )
+      ],
+    ),
+  );
 }
