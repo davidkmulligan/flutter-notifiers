@@ -23,19 +23,36 @@ import 'package:flutter/material.dart';
 // }
 
 abstract class Palette {
+  static Color primary = const Color(0xFF006C4B);
+
   static Color surface = const Color(0xFFEAF3EB);
+
+  static Color secondaryContainer = const Color(0xFF006C4B);
+
+  static Color error = const Color(0xFF9E1035);
 
   static Color background = const Color(0xFFFBFDF9);
   static Color onBackground = const Color(0xFF191C1A);
+  static Color onBackgroundFaded = const Color(0x74191C1A);
 }
 
 abstract class Typography {
   static TextStyle headline(Color color) {
     return TextStyle(
       fontFamily: 'Manrope',
-      fontSize: 24.0,
+      fontSize: 22.0,
       letterSpacing: 0.0,
-      fontWeight: FontWeight.w400,
+      fontWeight: FontWeight.w600,
+      color: color,
+    );
+  }
+
+  static TextStyle headline2(Color color) {
+    return TextStyle(
+      fontFamily: 'Manrope',
+      fontSize: 18.0,
+      letterSpacing: 0.0,
+      fontWeight: FontWeight.w500,
       color: color,
     );
   }
@@ -46,6 +63,16 @@ abstract class Typography {
       fontSize: 14.0,
       letterSpacing: 0.52,
       fontWeight: FontWeight.w400,
+      color: color,
+    );
+  }
+
+  static TextStyle label(Color color) {
+    return TextStyle(
+      fontFamily: 'Manrope',
+      fontSize: 12.0,
+      letterSpacing: 0.5,
+      fontWeight: FontWeight.w500,
       color: color,
     );
   }
