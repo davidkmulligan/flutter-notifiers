@@ -1,0 +1,5 @@
+[ ] Save data out to local JSON file
+[ ] Read data from local JSON file
+[ ] Add 'Edit Consumable' view 
+[ ] Tidy up codebase
+[ ] Add 'Sort by: Expiry' in inventory_view
