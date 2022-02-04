@@ -19,12 +19,11 @@ class InventoryListTile extends StatelessWidget {
       ),
       onDismissed: (direction) => DataStore.deleteConsumable(consumable.id),
       child: InkWell(
-        onTap: () => DataStore.updateConsumable(
-            id: consumable.id,
-            update: Consumable(
-                name: consumable.name + 'ah',
-                location: consumable.location,
-                expiry: Expiry(day: 14, month: 04))),
+        onTap: () => Navigator.pushNamed(
+          context,
+          '/edit-consumable',
+          arguments: consumable,
+        ),
         child: _tile(consumable),
       ),
     );
