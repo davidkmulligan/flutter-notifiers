@@ -64,6 +64,10 @@ class DataStore {
     alphabeticalGroups.update();
   }
 
+  static Consumable getConsumableById(String id) {
+    return consumableSource.singleWhere((c) => c.id == id);
+  }
+
   static void updateConsumable(
       {required String id, required Consumable update}) {
     final index = consumableSource.indexWhere((element) => element.id == id);
