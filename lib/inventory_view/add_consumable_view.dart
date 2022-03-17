@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:pantry/inventory_view/components/edit_top_bar.dart';
 
 import 'package:pantry/models/consumable.dart';
 import 'package:pantry/app/dataStore.dart';
 
-import 'package:pantry/inventory_view/components/inventory_back_button.dart';
+// import 'package:pantry/inventory_view/components/inventory_back_button.dart';
 import 'package:pantry/inventory_view/components/consumable_form.dart';
 
 class AddConsumableView extends StatefulWidget {
@@ -44,7 +45,9 @@ class _AddConsumableViewState extends State<AddConsumableView> {
       body: SafeArea(
         child: Column(
           children: [
-            const InventoryBackButton(),
+            const EditTopBar(
+              title: "Add an Item",
+            ),
             ConsumableForm(
               formKey: _formKey,
               nameController: _nameController,

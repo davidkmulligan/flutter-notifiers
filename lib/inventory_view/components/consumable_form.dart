@@ -27,10 +27,13 @@ class ConsumableForm extends StatelessWidget {
           const SizedBox(height: 24.0),
           InventoryTextField(
             controller: nameController,
+            labelText: 'Item name',
             hintText: 'Add a name',
           ),
+          const SizedBox(height: 8.0),
           InventoryTextField(
             controller: locationController,
+            labelText: 'Location',
             hintText: 'add a location',
           ),
           _submitButton(onSubmitCallback),

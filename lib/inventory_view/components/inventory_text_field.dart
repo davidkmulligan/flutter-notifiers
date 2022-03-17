@@ -6,11 +6,13 @@ class InventoryTextField extends StatelessWidget {
   const InventoryTextField({
     Key? key,
     required this.controller,
+    required this.labelText,
     this.hintText = '',
   }) : super(key: key);
 
   final TextEditingController controller;
   final String hintText;
+  final String labelText;
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +32,7 @@ class InventoryTextField extends StatelessWidget {
             borderSide: BorderSide.none,
           ),
           hintText: hintText,
+          labelText: labelText,
         ),
         controller: controller,
         validator: (value) =>

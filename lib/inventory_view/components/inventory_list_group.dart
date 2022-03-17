@@ -14,7 +14,7 @@ class InventoryListGroup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 16.0),
+      margin: const EdgeInsets.fromLTRB(16.0, 24.0, 16.0, 16.0),
       child: Column(
         children: [
           _groupTitle(group.name),
@@ -29,7 +29,7 @@ Widget _groupTitle(String title) {
   return Container(
     alignment: Alignment.centerLeft,
     // padding: const EdgeInsets.fromLTRB(16.0, 0.0, 0.0, 16.0),
-    padding: const EdgeInsets.only(left: 8.0, bottom: 4.0),
+    padding: const EdgeInsets.only(left: 0.0, bottom: 6.0),
     child: Text(
       title,
       style: theme.Typography.headline(theme.Palette.onBackground),
@@ -58,7 +58,9 @@ List<Widget> _listTiles(List<Consumable> consumables) {
     listTiles.add(InventoryListTile(consumable: c));
     listTiles.add(const Divider(
       indent: 16.0,
+      endIndent: 2.0,
       height: 0.0,
+      color: Color.fromARGB(132, 158, 158, 158),
     ));
   }
 

@@ -12,6 +12,12 @@ class InventoryListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(children: inventoryGroup);
+    final List<Widget> _list = [
+      ...inventoryGroup,
+      const SizedBox(
+        height: 64.0,
+      )
+    ];
+    return ListView(children: _list);
   }
 }

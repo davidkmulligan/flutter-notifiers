@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pantry/inventory_view/components/edit_top_bar.dart';
 
 import 'package:pantry/models/consumable.dart';
 import 'package:pantry/app/dataStore.dart';
@@ -50,7 +51,9 @@ class _EditConsumableViewState extends State<EditConsumableView> {
       body: SafeArea(
         child: Column(
           children: [
-            const InventoryBackButton(),
+            const EditTopBar(
+              title: "Edit an Item",
+            ),
             ConsumableForm(
               formKey: _formKey,
               nameController: _nameController,
