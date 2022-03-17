@@ -10,6 +10,12 @@ class Consumable {
     isMarkedForDelete = false;
   }
 
+  Consumable.fromJson(Map<String, dynamic> json)
+      : id = json['id'],
+        name = json['name'],
+        location = json['location'],
+        expiry = Expiry();
+
   static late Uuid _uuid;
 
   late String id;
@@ -26,6 +32,12 @@ class Consumable {
       return '${expiry.day} - ${expiry.month} - ${expiry.year}';
     }
   }
+
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'name': name,
+        'location': location,
+      };
 }
 
 class Expiry {

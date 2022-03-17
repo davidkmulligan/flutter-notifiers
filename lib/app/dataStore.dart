@@ -1,14 +1,22 @@
+import 'dart:convert';
+import 'dart:math';
+import 'package:flutter/material.dart';
 import 'package:pantry/test_data.dart' as test;
 
+import 'package:pantry/utils/local_storage.dart';
 import 'package:pantry/models/consumable.dart';
 import 'package:pantry/models/inventory_group_collection.dart';
 
 class DataStore {
   DataStore() {
-    consumableSource = test.sourceConsumables;
+    consumableSource = [];
     locationGroups = InventoryGroupCollection([]);
     alphabeticalGroups = InventoryGroupCollection([]);
   }
+
+  // DataStore.fromJSON(String json) {
+
+  // }
 
   static late List<Consumable> consumableSource;
   static late InventoryGroupCollection locationGroups;
@@ -106,6 +114,40 @@ class DataStore {
     // if (alphabeticalGroups.value[alphaIndex].consumables.isEmpty) {
     //   alphabeticalGroups.value.removeAt(alphaIndex);
     // }
+
+    locationGroups.update();
+    alphabeticalGroups.update();
+  }
+
+  static Future<void> readFromDisk() async {
+    final fileContents = await readFromLocalStorage();
+    // debugPrint(fileContents);
+    final Iterable json = jsonDecode(fileContents);
+
+    consumableSource =
+        List<Consumable>.from(json.map(((e) => Consumable.fromJson(e))));
+
+    debugPrint(consumableSource.toString());
+    sortInventoryGroupsFromSource();
+
+    locationGroups.update();
+    alphabeticalGroups.update();
+  }
+
+  static void saveToDisk() async {
+    final _json = jsonEncode(DataStore.consumableSource);
+    await writeToLocalStorage(_json);
+  }
+
+  static void saveTestToDisk() async {
+    final _json = jsonEncode(test.sourceConsumables);
+    await writeToLocalStorage(_json);
+  }
+
+  static void clearStore() {
+    consumableSource.clear();
+    locationGroups.value.clear();
+    alphabeticalGroups.value.clear();
 
     locationGroups.update();
     alphabeticalGroups.update();
