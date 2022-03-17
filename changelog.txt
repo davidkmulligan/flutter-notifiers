@@ -1,0 +1,18 @@
+verions 0.0.2, 
+---------------------------------------
+## Local storage
+(David)
+- started initial work on reading/writing to local device storage.
+
+
+
+version 0.0.1+1, 4th February, 2022
+---------------------------------------
+## Initial app setup
+(David)
+- created an inventory list view to display all consumable items within current invenotry.
+- added sorting ability to inventory list view to display items grouped by either location or alphabetical order.
+- added initial basic create functionality to create a new consumable from the UI (haven't implemented a way to set expiry information yet).
+- added initial basic edit functionality to edit an existing consumable from the UI (cannot edit expiry information at present).
+- added swipe to dismiss to list tiles to delete a consumable from the UI.
+- added initial basic janky 'state management' with the 'DataStore' class (not sure how long it will be in the app for yet).

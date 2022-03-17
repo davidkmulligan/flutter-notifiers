@@ -1,5 +1,25 @@
+~~ Work on next
 [ ] Save data out to local JSON file
 [ ] Read data from local JSON file
-[ ] Add 'Edit Consumable' view 
-[ ] Tidy up codebase
+[X] Add 'Edit Consumable' view 
+[X] Tidy up codebase
+[ ] Create 'Empty Inventory List' view
+[ ] Add some future listener/builder to handle transistion from 'empty list view' to normal 'list view' when waiting for data from file
+[ ] Add scroll bar to inventory list view
+
+---
+
+
+~~ Done today
+
+
+---
+
+~~ Work on eventually
+[ ] Save inventory data to disk on app close
+[ ] Save inventory data to disk on app suspension
 [ ] Add 'Sort by: Expiry' in inventory_view
+[ ] make new app colour palette
+[ ] update app tyopgraphy 
+[ ] create app icon 
+[ ] create app splash screen
