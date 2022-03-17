@@ -62,9 +62,9 @@ Widget _text(String category) {
 
 Widget _addButton(BuildContext context) {
   return IconButton(
-      onPressed: () => Navigator.pushNamed(context, '/add-consumable'),
+      onPressed: () => Navigator.pushNamed(context, '/settings'),
       icon: Icon(
-        Icons.add_circle_outline,
+        Icons.tune,
         color: theme.Palette.primary,
       ));
 }

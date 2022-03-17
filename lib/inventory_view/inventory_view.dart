@@ -67,6 +67,10 @@ class _InventoryViewState extends State<InventoryView> {
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.add),
+        onPressed: () => Navigator.pushNamed(context, '/add-consumable'),
+      ),
     );
   }
 }
