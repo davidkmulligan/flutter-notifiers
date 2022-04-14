@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:pantry/models/consumable.dart';
 import 'package:pantry/app/theme.dart' as theme;
-import 'package:pantry/app/dataStore.dart';
+import 'package:pantry/app/store.dart';
 
 class InventoryListTile extends StatelessWidget {
   const InventoryListTile({Key? key, required this.consumable})
@@ -17,7 +17,7 @@ class InventoryListTile extends StatelessWidget {
       background: Container(
         color: theme.Palette.error,
       ),
-      onDismissed: (direction) => DataStore.deleteConsumable(consumable.id),
+      onDismissed: (direction) => Store.deleteConsumable(consumable.id),
       child: InkWell(
         onTap: () => Navigator.pushNamed(
           context,

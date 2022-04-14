@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pantry/inventory_view/components/edit_top_bar.dart';
 
 import 'package:pantry/models/consumable.dart';
-import 'package:pantry/app/dataStore.dart';
+import 'package:pantry/app/store.dart';
 
 import 'package:pantry/inventory_view/components/inventory_back_button.dart';
 import 'package:pantry/inventory_view/components/consumable_form.dart';
@@ -35,7 +35,7 @@ class _EditConsumableViewState extends State<EditConsumableView> {
     consumable.name = _nameController.text;
     consumable.location = _locationController.text;
 
-    DataStore.updateConsumable(id: consumable.id, update: consumable);
+    Store.updateConsumable(id: consumable.id, update: consumable);
 
     Navigator.pop(context);
   }

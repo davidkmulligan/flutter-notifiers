@@ -5,13 +5,13 @@ import 'package:pantry/test_data.dart' as test;
 
 import 'package:pantry/utils/local_storage.dart';
 import 'package:pantry/models/consumable.dart';
-import 'package:pantry/models/inventory_group_collection.dart';
+import 'package:pantry/notifiers/category_groupings_notifier.dart';
 
-class DataStore {
-  DataStore() {
+class Store {
+  Store() {
     consumableSource = [];
-    locationGroups = InventoryGroupCollection([]);
-    alphabeticalGroups = InventoryGroupCollection([]);
+    locationGroups = CategoryGroupingsNotifier([]);
+    alphabeticalGroups = CategoryGroupingsNotifier([]);
   }
 
   // DataStore.fromJSON(String json) {
@@ -19,8 +19,8 @@ class DataStore {
   // }
 
   static late List<Consumable> consumableSource;
-  static late InventoryGroupCollection locationGroups;
-  static late InventoryGroupCollection alphabeticalGroups;
+  static late CategoryGroupingsNotifier locationGroups;
+  static late CategoryGroupingsNotifier alphabeticalGroups;
 
   static void sortInventoryGroupsFromSource() {
     locationGroups.value.clear();
@@ -28,16 +28,14 @@ class DataStore {
 
     for (Consumable item in consumableSource) {
       if (locationGroups.doesContainGroupWithName(item.location)) {
-        locationGroups.addToGroupWithName(
-            name: item.location, consumable: item);
+        locationGroups.addMemberToGroup(item);
       } else {
         locationGroups.addGroup(name: item.location, consumables: [item]);
       }
 
       final _firstLetter = item.name[0].toUpperCase();
       if (alphabeticalGroups.doesContainGroupWithName(_firstLetter)) {
-        alphabeticalGroups.addToGroupWithName(
-            name: _firstLetter, consumable: item);
+        alphabeticalGroups.addMemberToGroup(item);
       } else {
         alphabeticalGroups.addGroup(name: _firstLetter, consumables: [item]);
       }
@@ -50,8 +48,7 @@ class DataStore {
     consumableSource.add(consumable);
 
     if (locationGroups.doesContainGroupWithName(consumable.location)) {
-      locationGroups.addToGroupWithName(
-          name: consumable.location, consumable: consumable);
+      locationGroups.addMemberToGroup(consumable);
     } else {
       locationGroups
           .addGroup(name: consumable.location, consumables: [consumable]);
@@ -59,8 +56,7 @@ class DataStore {
 
     final _firstLetter = consumable.name[0].toUpperCase();
     if (alphabeticalGroups.doesContainGroupWithName(_firstLetter)) {
-      alphabeticalGroups.addToGroupWithName(
-          name: _firstLetter, consumable: consumable);
+      alphabeticalGroups.addMemberToGroup(consumable);
     } else {
       alphabeticalGroups
           .addGroup(name: _firstLetter, consumables: [consumable]);
@@ -135,7 +131,7 @@ class DataStore {
   }
 
   static void saveToDisk() async {
-    final _json = jsonEncode(DataStore.consumableSource);
+    final _json = jsonEncode(Store.consumableSource);
     await writeToLocalStorage(_json);
   }
 

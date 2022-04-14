@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pantry/app/dataStore.dart';
+import 'package:pantry/app/store.dart';
 import 'package:pantry/inventory_view/components/inventory_back_button.dart';
 
 class SettingsView extends StatelessWidget {
@@ -16,11 +16,11 @@ class SettingsView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: const [
           ElevatedButton(
-            onPressed: DataStore.readFromDisk,
+            onPressed: Store.readFromDisk,
             child: Text('Load inventory'),
           ),
           ElevatedButton(
-            onPressed: DataStore.clearStore,
+            onPressed: Store.clearStore,
             child: Text('Delete inventory'),
           )
         ],

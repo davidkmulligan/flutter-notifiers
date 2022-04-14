@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:pantry/app/dataStore.dart';
+import 'package:pantry/app/store.dart';
 import 'package:pantry/models/consumable.dart';
 import 'package:pantry/app/theme.dart' as theme;
 

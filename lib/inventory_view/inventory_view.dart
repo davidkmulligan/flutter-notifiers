@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:pantry/models/inventory_group.dart';
-import 'package:pantry/app/dataStore.dart';
+import 'package:pantry/models/category_group.dart';
+import 'package:pantry/app/store.dart';
 
 import 'package:pantry/inventory_view/components/inventory_app_bar.dart';
 import 'package:pantry/inventory_view/components/inventory_list_group.dart';
@@ -77,9 +77,9 @@ class _InventoryViewState extends State<InventoryView> {
 
 Widget _locationListView() {
   return ValueListenableBuilder(
-    valueListenable: DataStore.locationGroups,
+    valueListenable: Store.locationGroups,
     builder: (context, value, child) {
-      var _list = value as List<InventoryGroup>;
+      var _list = value as CategoryGroupings;
       return InventoryListView(
         inventoryGroup:
             _list.map((group) => InventoryListGroup(group: group)).toList(),
@@ -90,9 +90,9 @@ Widget _locationListView() {
 
 Widget _alphabeticalListView() {
   return ValueListenableBuilder(
-    valueListenable: DataStore.alphabeticalGroups,
+    valueListenable: Store.alphabeticalGroups,
     builder: (context, value, child) {
-      var _list = value as List<InventoryGroup>;
+      var _list = value as CategoryGroupings;
       return InventoryListView(
         inventoryGroup:
             _list.map((group) => InventoryListGroup(group: group)).toList(),

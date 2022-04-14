@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pantry/inventory_view/components/edit_top_bar.dart';
 
 import 'package:pantry/models/consumable.dart';
-import 'package:pantry/app/dataStore.dart';
+import 'package:pantry/app/store.dart';
 
 // import 'package:pantry/inventory_view/components/inventory_back_button.dart';
 import 'package:pantry/inventory_view/components/consumable_form.dart';
@@ -30,7 +30,7 @@ class _AddConsumableViewState extends State<AddConsumableView> {
   void validateAndAddItem() {
     if (!(_formKey.currentState!.validate())) return;
 
-    DataStore.addConsumable(Consumable(
+    Store.addConsumable(Consumable(
       name: _nameController.text,
       location: _locationController.text,
       expiry: Expiry(),
